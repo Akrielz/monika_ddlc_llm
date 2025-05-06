@@ -68,13 +68,8 @@ class Game:
         self.character.set_mood(emotion)
 
     def run(self):
-        # Run in parallel the "_run" and "llm.post_init" with multithreading pooling
-        # llm_thread = Thread(target=self.llm.post_init)
         self.llm.post_init()
-        # llm_thread.start()
         self._run()
-        # llm_thread.join()
-
 
     def _run(self):
         while self.running:
