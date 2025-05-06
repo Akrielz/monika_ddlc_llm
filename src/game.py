@@ -16,7 +16,8 @@ class Game:
         self.character_name = "Monika"
         self.player_name = "Akriel"
 
-        self.screen_size = (1920, 1080)
+        screen_info = pygame.display.Info()
+        self.screen_size = (screen_info.current_w, screen_info.current_h)
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption(f"Just {self.character_name}")
 
