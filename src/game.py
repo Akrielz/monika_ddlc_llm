@@ -1,4 +1,3 @@
-from threading import Thread
 from typing import List
 
 import pygame
@@ -24,8 +23,13 @@ class Game:
         self.character_path = "resources/images/character/monika/"
         self.background_sprite_path = "resources/images/background/club.webp"
         self.sound_path = 'resources/sounds/1-04. Okay, Everyone!.mp3'
-        self.sound = pygame.mixer.Sound(self.sound_path)
-        # self.sound.play(-1)
+
+        try:
+            self.sound = pygame.mixer.Sound(self.sound_path)
+            self.sound.play(-1)
+        except pygame.error as e:
+            print(f"Error loading sound: {e}")
+            self.sound = None
 
         self.clock = pygame.time.Clock()
         self.running = True
